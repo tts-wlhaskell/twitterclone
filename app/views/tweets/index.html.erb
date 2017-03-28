@@ -1,8 +1,5 @@
 <div class="jumbotron">
     <h1>Welcome to the Twitter Clone</h1>
-    <% if user_signed_in? %>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-    <% end %>
 </div>
 
 <h3><%= link_to 'New Tweet', new_tweet_path %></h3>
@@ -13,11 +10,11 @@
     <div class="row">
         <% @tweets.each_with_index do |tweet, i| %>
             <div class="col-sm-3 well">
-                <h3><%= tweet.user.username %></h3>
+                <h3><%= link_to tweet.user.username, tweet.user %></h3>
                 <p><%= tweet.message %></p>
                 <p><%= link_to 'Show Tweet', tweet %></p>
             </div>
-            <% if (i%4) == 0 && i != 0 %>
+            <% if ((i+1)%4) == 0 %>
                 </div>
                 <div class="row">
             <% end %>

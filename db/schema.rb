@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170323003954) do
+ActiveRecord::Schema.define(version: 20170324192452) do
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "friend_id"
+  end
+
+  add_index "relationships", ["friend_id"], name: "index_relationships_on_friend_id"
+  add_index "relationships", ["user_id"], name: "index_relationships_on_user_id"
 
   create_table "tweets", force: :cascade do |t|
     t.string   "name"

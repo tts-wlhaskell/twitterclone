@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
   
+  post 'relationships' => 'relationships#create', as: 'relationships'
+  
+  delete 'relationship/:id' => 'relationships#destroy', as: 'relationship'
+  
+  get 'users' => 'users#index', as: 'users'
+
+  get 'user/:id' => 'users#show', as: 'user'
+
   devise_for :users
+  
   root 'tweets#index'
   
   resources :tweets
