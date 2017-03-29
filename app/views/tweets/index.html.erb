@@ -12,6 +12,8 @@
             <div class="col-sm-3 well">
                 <h3><%= link_to tweet.user.username, tweet.user %></h3>
                 <p><%= tweet.message %></p>
+                <p>Likes: <%= tweet.likes.length %></p>
+                <%= link_to 'Like Tweet', likes_path(tweet_id: tweet.id), method: :post %>
                 <p><%= link_to 'Show Tweet', tweet %></p>
             </div>
             <% if ((i+1)%4) == 0 %>
