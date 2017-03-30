@@ -7,4 +7,10 @@ class LikesController < ApplicationController
             redirect_to tweets_path, notice: "You could not like that Tweet"
         end
     end
+    
+    def destroy
+        like = Like.find(params[:id])
+        like.destroy
+        redirect_to tweets_path, notice: "Unliked"
+    end
 end

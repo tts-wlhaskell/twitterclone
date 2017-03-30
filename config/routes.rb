@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  delete 'like/:id' => 'likes#destroy', as: 'like'
+  
   post 'likes' => 'likes#create', as: 'likes'
   
   post 'relationships' => 'relationships#create', as: 'relationships'

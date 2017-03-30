@@ -3,6 +3,10 @@
 <p>Location: <%= @user.location %></p>
 <p><%= @user.bio %></p>
 
+<p>Current Conditions:</p>
+<p>Temperature: <%= @weather["current_observation"]["temp_f"] %></p>
+<p>Humidity: <%= @weather["current_observation"]['relative_humidity']%></p>
+
 <div class="container-fluid">
     <div class="row">
         <% @user.tweets.each_with_index do |tweet, i| %>
